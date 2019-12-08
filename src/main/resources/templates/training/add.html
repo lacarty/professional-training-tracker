@@ -1,10 +1,42 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
+<html lang="en" xmlns:th="http://www.thymeleaf.org/">
+<head th:replace="fragments :: head"></head>
+<body class="container">
+<h1 th:text="${title}">Default Training Title</h1>
+
+<nav th:replace="fragments :: navigation"></nav>
+
+<form method="post" style="max-width:600px;" th:object="${training}">
+    
+    <div class="form-group">
+        <label th:for="name">Name</label>
+        <input class="form-control" th:field="*{name}" />
+        <span th:errors="*{name}" class="error"></span>
+    </div>
+    
+    <div class="form-group">
+        <label th:for="description">Description</label>
+        <input class="form-control" th:field="*{description}" />
+        <span th:errors="*{description}" class="error"></span>
+    </div>
+
+    <div class="form-group">
+        <label th:for="description">Date</label>
+        <input class="form-control" th:field="*{date}" />
+        <span th:errors="*{date}" class="error"></span>
+    </div>
+    <!-- Future feature:  Scheduled, Completed, Wish list but drop down instead?
+        <div class="form-group">
+            <label th:for="type">Category</label>
+            <select name="categoryId">
+                <option th:each="category : ${categories}"
+                        th:text="${category.name}"
+                        th:value="${category.id}"></option>
+            </select>
+        </div>
+    -->
+    <input type="submit" value="Add Training" />
+</form>
 
 </body>
 </html>
