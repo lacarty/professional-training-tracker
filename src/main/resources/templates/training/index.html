@@ -5,12 +5,13 @@
 <body class="container">
 
 <heading th:replace="fragments :: heading"></heading>
-
+<!--
 <nav th:replace="fragments :: navigation"></nav>
-
+-->
 <h1 th:text="${title}">Default Title</h1>
 
-<p th:unless="${trainings} and ${trainings.size()}">There Are No Training Events Entered.  Please Add A Training Event. </p>
+<p th:unless="${trainings} and ${trainings.size()}">Welcome!
+    There Are No Training Events Entered.  Please Add A Training Event. </p>
 
 
 <table class="table">
@@ -32,7 +33,7 @@
 
 </table>
 
-<a href="/training/add">Add</a> |
+<a href="/training/add">Add</a>
 <!--<a href="/training/remove">Remove</a>
 -->
 

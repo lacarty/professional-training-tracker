@@ -4,6 +4,7 @@ package org.launchcode.professionaltrainingtracker.models;
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
+import java.util.Calendar;
 import java.util.Date;
 
 @Entity
@@ -22,10 +23,10 @@ public class Training {
     private String description;
 
     @NotNull
-    private Date date;
+    private Date date;  //private Calendar date;  ??
 
-    //@ManyToMany
-    //private String user;  //private User user; ??
+    @ManyToOne
+    private User user;  //private String user; ??
 
 
     // future feature (Scheduled, Completed, Wish list)
@@ -67,14 +68,23 @@ public class Training {
         this.description = description;
     }
 
-    public Date getDate() {
+    public @NotNull Date getDate() {
         return date;
     }
 
-    public void setDate(Date date) {
+    public void setDate(@NotNull Date date) {
         this.date = date;
+        }
 
-    }
+
+    public User getUser()  {
+        return user;
+        }
+
+    public void setUser(User user) {
+        this.user = user;
+        }
+
 
     /* (future addition of category: Scheduled, Completed, Wish list drop down menu)
     public Category getCategory() {
