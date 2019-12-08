@@ -10,8 +10,14 @@
 </head>
 <body>
 
+<heading th:fragments="heading">
+    <h1>My Professional Training Tracker</h1>
+    <a class="logout" href="/login">logout</a>
+    <hr />
+</heading>
+
 <nav th:fragment="navigation">
-    <a href="/training/index">Home</a> |
+    <a href="/training/index">Home |</a> |
     <a href="/training/add">Add</a> |
 
 </nav>

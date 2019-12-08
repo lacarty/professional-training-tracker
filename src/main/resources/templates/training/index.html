@@ -4,11 +4,13 @@
 
 <body class="container">
 
-<h1 th:text="${title}">Default Title</h1>
+<heading th:replace="fragments :: heading"></heading>
 
 <nav th:replace="fragments :: navigation"></nav>
 
-<p th:unless="${trainings} and ${trainings.size()}">No Training Entered :(</p>
+<h1 th:text="${title}">Default Title</h1>
+
+<p th:unless="${trainings} and ${trainings.size()}">There Are No Training Events Entered.  Please Add A Training Event. </p>
 
 
 <table class="table">
@@ -20,7 +22,7 @@
         <!--        <th>Category</th> -->
     </tr>
 
-    <tr th:each="training : ${trainings}">  <!--this tells it to look in Model for trainings; if you go to TrainingController you will see there is trainings in Model -->
+    <tr th:each="training : ${trainings}">  <!--this tells it to look training in trainings in Model; if you go to TrainingController you will see there is "trainings" in Model -->
         <td th:text="${training.name}"></td>
         <td th:text="${training.description}"></td>
         <td th:text="${training.date}"></td>
