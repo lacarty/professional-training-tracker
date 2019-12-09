@@ -4,7 +4,6 @@ package org.launchcode.professionaltrainingtracker.models;
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
-import java.util.Calendar;
 import java.util.Date;
 
 @Entity
@@ -15,19 +14,15 @@ public class Training {
     private int id;
 
     @NotNull
-    @Size(min=3, max=15)
+    @Size(min = 3, max = 15)
     private String name;
 
     @NotNull
-    @Size(min=1, message = "Description must not be empty")
+    @Size(min = 1, message = "Description must not be empty")
     private String description;
 
     @NotNull
-    private Date date;  //private Calendar date;  ??
-
-    @ManyToOne
-    private User user;  //private String user; ??
-
+    private Date date;
 
     // future feature (Scheduled, Completed, Wish list)
     // @ManyToMany
@@ -37,11 +32,11 @@ public class Training {
     // private List<Menu> menus;
 
 
-    public Training () {
+    public Training() {
 
     }
 
-    public Training(String name, String description, Date date ) {
+    public Training(String name, String description, Date date) {
         this.name = name;
         this.description = description;
         this.date = date;
@@ -74,9 +69,9 @@ public class Training {
 
     public void setDate(@NotNull Date date) {
         this.date = date;
-        }
-
-
+    }
+}
+/*
     public User getUser()  {
         return user;
         }
@@ -85,7 +80,7 @@ public class Training {
         this.user = user;
         }
 
-
+*/
     /* (future addition of category: Scheduled, Completed, Wish list drop down menu)
     public Category getCategory() {
         return category;
@@ -95,5 +90,7 @@ public class Training {
         this.category = category;
 
     }
-*/
+
 }
+*/
+
