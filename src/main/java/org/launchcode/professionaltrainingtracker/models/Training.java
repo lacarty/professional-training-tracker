@@ -1,6 +1,5 @@
 package org.launchcode.professionaltrainingtracker.models;
 
-
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
@@ -25,10 +24,7 @@ public class Training {
     private Date date;
 
     // future feature (Scheduled, Completed, Wish list)
-    // @ManyToMany
-    //private Category category;
-
-    //@ManyToMany(mappedBy = "cheeses")
+    //@ManyToMany(mappedBy = "cheeses")   example
     // private List<Menu> menus;
 
 
@@ -71,16 +67,7 @@ public class Training {
         this.date = date;
     }
 }
-/*
-    public User getUser()  {
-        return user;
-        }
 
-    public void setUser(User user) {
-        this.user = user;
-        }
-
-*/
     /* (future addition of category: Scheduled, Completed, Wish list drop down menu)
     public Category getCategory() {
         return category;
