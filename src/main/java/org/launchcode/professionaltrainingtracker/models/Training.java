@@ -23,12 +23,30 @@ public class Training {
     @NotNull
     private Date date;
 
+    @NotNull
+    //@Size(min = 1, message = "Description must not be empty")
+    private String url;
+
+    @NotNull
+    //@Size(min = 1, message = "Description must not be empty")
+    private Double ceus;
+
+    @NotNull
+  //  @Size(min = 1, message = "Description must not be empty")
+    private Double hours;
+
+    @NotNull
+   // @Size(min = 1, message = "Description must not be empty")
+    private String location;
+
+
     @ManyToOne
     private User user;
 
     // future feature (Scheduled, Completed, Wish list)
     //@ManyToMany(mappedBy = "cheeses")   example
     // private List<Menu> menus;
+
 
 
     public Training() {
@@ -39,6 +57,10 @@ public class Training {
         this.name = name;
         this.description = description;
         this.date = date;
+        this.url = url;
+        this.ceus = ceus;
+        this.hours = hours;
+        this.location = location;
     }
 
     public int getId() {
@@ -68,6 +90,43 @@ public class Training {
     public void setDate(@NotNull Date date) {
         this.date = date;
     }
+
+    public String getUrl() {
+        return url;
+    }
+
+    public void setUrl(String url) {
+        this.url = url;
+    }
+
+    public Double getCeus() {
+        return ceus;
+    }
+
+    public void setCeus(Double ceus) {
+        this.ceus = ceus;
+    }
+
+    public Double getHours() {
+        return hours;
+    }
+
+    public void setHours(Double hours) {
+        this.hours = hours;
+    }
+
+    public String getLocation() {
+        return location;
+    }
+
+    public void setLocation(String location) {
+        this.location = location;
+    }
+
+    public User getUser() {
+        return user;
+    }
+
 
     public void setUser(User user) {
     }

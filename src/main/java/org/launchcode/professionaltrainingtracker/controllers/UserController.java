@@ -45,6 +45,7 @@ public class UserController {
         }
 
         userDao.save(newUser);
+        //return "user/login";
         return "user/login";
 
     }
