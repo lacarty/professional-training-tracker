@@ -23,6 +23,9 @@ public class Training {
     @NotNull
     private Date date;
 
+    @ManyToOne
+    private User user;
+
     // future feature (Scheduled, Completed, Wish list)
     //@ManyToMany(mappedBy = "cheeses")   example
     // private List<Menu> menus;
@@ -37,7 +40,6 @@ public class Training {
         this.description = description;
         this.date = date;
     }
-
 
     public int getId() {
         return id;
@@ -65,6 +67,9 @@ public class Training {
 
     public void setDate(@NotNull Date date) {
         this.date = date;
+    }
+
+    public void setUser(User user) {
     }
 }
 

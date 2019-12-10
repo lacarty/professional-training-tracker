@@ -1,0 +1,54 @@
+<!--<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org/"/>
+<head>
+    <meta charset="UTF-8"/>
+    <title></title>
+</head>
+<body>
+
+</body>
+</html>-->
+
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org/">
+<head th:replace="fragments :: head"></head>
+
+<body class="container">
+
+<heading th:replace="fragments :: heading"></heading>
+<!--
+<nav th:replace="fragments :: navigation"></nav>
+-->
+<h1 th:text="${title}">Default Title</h1>
+
+<p th:unless="${trainings} and ${trainings.size()}">Darn it!
+    Why are my Training Events not showing up!!!!!  </p>
+
+
+<table class="table">
+
+    <tr>
+        <th>Name</th>
+        <th>Description</th>
+        <th>Date</th>
+        <!--        <th>Category</th> -->
+    </tr>
+
+    <tr th:each="training : ${trainings}">  <!--this tells it to look training in trainings in Model; if you go to TrainingController you will see there is "trainings" in Model -->
+        <td th:text="${training.name}"></td>
+        <td th:text="${training.description}"></td>
+        <td th:text="${training.date}"></td>
+        <!--       <td th:text="${training.category != null ? training.category.name: 'No category set'}"></td>
+           -->
+    </tr>
+
+</table>
+
+<a href="/training/add">Add</a>
+<!--<a href="/training/remove">Remove</a>
+-->
+
+</body>
+</html>
+
+
