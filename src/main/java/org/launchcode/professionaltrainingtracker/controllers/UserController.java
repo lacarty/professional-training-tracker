@@ -3,6 +3,7 @@ package org.launchcode.professionaltrainingtracker.controllers;
 
 import org.launchcode.professionaltrainingtracker.models.User;
 import org.launchcode.professionaltrainingtracker.models.data.UserDao;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.Errors;
@@ -16,52 +17,83 @@ import javax.validation.Valid;
 @RequestMapping("user")
 public class UserController {
 
-        @RequestMapping(value = "add", method = RequestMethod.GET)
-        public String add(Model model) {
-            model.addAttribute(new User());
+    @Autowired
+    private UserDao userDao;
+
+    @RequestMapping(value = "add", method = RequestMethod.GET)
+    public String add(Model model) {
+        model.addAttribute(new User());
+        model.addAttribute("title", "Register");
+        return "user/add";
+    }
+
+    @RequestMapping(value = "add", method = RequestMethod.POST)
+    public String add(Model model, @ModelAttribute @Valid User newUser,
+                      Errors errors, String verify) {
+
+        model.addAttribute(newUser);
+/*
+            if (!errors.hasErrors()) {
+                userDao.save(user);
+                return "redirect: /training"; //use redirect when taking to different page
+            }
+            return "user/add";
+*/
+        if (errors.hasErrors()) {
             model.addAttribute("title", "Register");
             return "user/add";
         }
 
-        @RequestMapping(value = "add", method = RequestMethod.POST)
-        public String add(Model model, @ModelAttribute @Valid User user,
-                          Errors errors) {
-
-            model.addAttribute(user);
-
-            if (!errors.hasErrors()) {
-                return "training";
-            }
-
-            return "user/add";
-
-        }
-
-        @RequestMapping(value = "login", method = RequestMethod.GET)
-        public String login(Model model) {
-            model.addAttribute(new User());
-            model.addAttribute("title", "Login");
-            return "user/login";
-        }
-
-        @RequestMapping(value = "login", method = RequestMethod.POST)
-        public String login(Model model, @ModelAttribute @Valid User user,
-                            Errors errors, String verify) {
-
-            model.addAttribute(user);
-            boolean passwordsMatch = true;
-            if (user.getPassword() == null || verify == null
-                    || !user.getPassword().equals(verify)) {
-                passwordsMatch = false;
-                user.setPassword("");
-                model.addAttribute("verifyError", "Passwords must match");
-            }
-
-            if (!errors.hasErrors() && passwordsMatch) {
-                return "training/index";
-            }
-
-            return "user/login";
-        }
+        userDao.save(newUser);
+        return "user/login";
 
     }
+
+
+    @RequestMapping(value = "login", method = RequestMethod.GET)
+    public String login(Model model) {
+        model.addAttribute(new User());
+        model.addAttribute("title", "Login");
+        return "user/login";
+    }
+
+    @RequestMapping(value = "login", method = RequestMethod.POST)
+    public void login(Model model, @ModelAttribute @Valid User user,
+                      Errors errors, String verify) {
+
+        model.addAttribute(user);
+        boolean passwordsMatch = true;
+        if (user.getPassword() == null || verify == null
+                || !user.getPassword().equals(verify)) {
+
+            passwordsMatch = false;
+            user.setPassword("");
+            model.addAttribute("verifyError", "Passwords must match");
+        }
+
+
+            if (!errors.hasErrors() && passwordsMatch) {
+               return "training/index";
+                // userDao.save(user);
+               // return "redirect: training/";
+            }
+
+        return "user/login";
+    }
+
+}
+
+
+        //userDao.save(user);
+        //       return "user/login";
+
+
+
+
+
+
+//In UserDao, userDao.findbyId (since by email) for looking in database for email
+//have to have cookies to stayed logged in
+//example:
+//public interface UserDao extends CrudRepository<User,Integer> {
+//    User findByUsername(String username);

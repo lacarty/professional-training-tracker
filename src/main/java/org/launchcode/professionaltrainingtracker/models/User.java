@@ -1,11 +1,11 @@
 package org.launchcode.professionaltrainingtracker.models;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
+import javax.persistence.*;
 import javax.validation.constraints.Email;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
+import java.util.ArrayList;
+import java.util.List;
 
 @Entity
 public class User {
@@ -13,10 +13,6 @@ public class User {
     @Id
     @GeneratedValue
     private int id;
-
-    @NotNull
-    @Size(min= 5, max= 15)
-    private String username;
 
     @Email(message = "Invalid email address")
     private String email;
@@ -26,24 +22,30 @@ public class User {
     private String password;
 
     @NotNull(message = "Passwords do not match")
+    @Transient
     private String verifyPassword;
 
+
+    @OneToMany // one user, many trainings
+    @JoinColumn(name = "id")
+    private List<Training> trainings = new ArrayList<>();
+
     public User(String username, String email, String password) {
-        this.username = username;
+        //this.username = username;
         this.email = email;
         this.password = password;
     }
 
     public User() {}
 
-    public String getUsername() {
+   /* public String getUsername() {
         return username;
     }
 
     public void setUsername(String username) {
         this.username = username;
     }
-
+*/
     public String getEmail() {
         return email;
     }
