@@ -72,25 +72,16 @@ public class UserController {
         }
 
 
-            if (!errors.hasErrors() && passwordsMatch) {
-               return "training/index";
-                // userDao.save(user);
-               // return "redirect: training/";
-            }
+ /*       if (errors.hasErrors()) {
+            model.addAttribute("title", "Invalid email or password");
+            return "user/login";
 
-        return "user/login";
-    }
+        }
 
+        userDao.save(user);
+        return "training";
+*/    }
 }
-
-
-        //userDao.save(user);
-        //       return "user/login";
-
-
-
-
-
 
 //In UserDao, userDao.findbyId (since by email) for looking in database for email
 //have to have cookies to stayed logged in
