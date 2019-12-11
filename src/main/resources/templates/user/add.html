@@ -30,7 +30,17 @@
         <div class="error" th:errors="*{verifyPassword}"></div>
     </div>
 
+
     <input type="submit" value="Register to Create an Account" />
+<!--    <input type="submit" value="Already have an Account?  Login Here!" />
+    -->
+   <!--
+    <button class="btn btn-primary" type="submit">Register</button>
+    -->
+
+    <a th:href="@{login}" button class="btn btn-primary" role="button">Login</a>
+    <!-- <a th:href="@{/register}" button class="btn btn-primary" role="button">Cancel</a>-->
+
 </form>
 
 </body>
