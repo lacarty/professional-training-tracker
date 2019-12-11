@@ -13,7 +13,7 @@ public class Training {
     private int id;
 
     @NotNull
-    @Size(min = 3, max = 15)
+    @Size(min = 3, max = 55)
     private String name;
 
     @NotNull
@@ -87,7 +87,7 @@ public class Training {
         return date;
     }
 
-    public void setDate(@NotNull Date date) {
+    public void setDate(Date date) {
         this.date = date;
     }
 
@@ -126,7 +126,6 @@ public class Training {
     public User getUser() {
         return user;
     }
-
 
     public void setUser(User user) {
     }
