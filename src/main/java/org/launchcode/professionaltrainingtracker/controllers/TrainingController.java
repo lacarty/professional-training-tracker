@@ -28,7 +28,7 @@ public class TrainingController {
     public String findTraining(Model model){
 
         model.addAttribute("trainings", trainingDao.findAll());
-        model.addAttribute("title", "My Training Index");
+        model.addAttribute("title", "My Dashboard");
 
         return "training/index";
     }

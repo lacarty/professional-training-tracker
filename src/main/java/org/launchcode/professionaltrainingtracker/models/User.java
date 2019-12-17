@@ -21,7 +21,7 @@ public class User {
     @Size(min=5, message = "Password must be at least 5 characters long")
     private String password;
 
-    @NotNull(message = "Passwords do not match")
+    //@NotNull(message = "Passwords do not match")
     @Transient
     private String verifyPassword;
 
@@ -30,13 +30,17 @@ public class User {
     @JoinColumn(name = "id")
     private List<Training> trainings = new ArrayList<>();
 
-    public User(String username, String email, String password) {
+    public User(String email, String password) {
         //this.username = username;
         this.email = email;
         this.password = password;
+        this.id = id;
+
     }
 
-    public User() {}
+    public User() {
+
+    }
 
    /* public String getUsername() {
         return username;
@@ -47,14 +51,17 @@ public class User {
     }
 */
     public String getEmail() {
+
         return email;
     }
 
     public void setEmail(String email) {
+
         this.email = email;
     }
 
     public String getPassword() {
+
         return password;
     }
 
@@ -63,7 +70,12 @@ public class User {
         checkPassword();
     }
 
-    public String getVerifyPassword() {
+    public int getId(){
+
+        return id;
+    }
+
+   public String getVerifyPassword() {
         return verifyPassword;
     }
 
@@ -77,5 +89,9 @@ public class User {
                 && !password.equals(verifyPassword)) {
             verifyPassword = null;
         }
+
+
+
     }
 }
+
