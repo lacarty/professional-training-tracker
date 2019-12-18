@@ -14,14 +14,66 @@
     There Are No Training Events Entered.  Please Add A Training Event. </p>
 
 
+
+<h2><a href="/list/stock">Training To Date</a></h2>
+
+<script>
+window.onload = function () {
+
+var chart = new CanvasJS.Chart("chartContainer", {
+	theme: "light2", // "light1", "light2", "dark1", "dark2"
+	animationEnabled: true,
+	title: {
+		text: "Yearly Training Progress"
+	},
+	axisY: {
+		title: "Hours",
+		prefix: "",
+		includeZero: false
+	},
+	data: [{
+		type: "rangeColumn",
+		yValueFormatString: "#,##0.00",
+		xValueFormatString: "MMM YYYY",
+		toolTipContent: "{x}<br>High: {y[0]}<br>Low: {y[1]}",
+		dataPoints: [
+			{ x: new Date(2015, 0), y: [22.50, 30.5] },
+			{ x: new Date(2016, 1), y: [10.0, 45.00] },
+			{ x: new Date(2017, 2), y: [25, 80.5] },
+			{ x: new Date(2018, 3), y: [17.0, 48.50] },
+			{ x: new Date(2019, 4), y: [43.0, 60] },
+			{ x: new Date(2020, 5), y: [20, 40.0] },
+			{ x: new Date(2021, 6), y: [5.5, 50.0] },
+			{ x: new Date(2022, 7), y: [40.5, 80.0] },
+			{ x: new Date(2018, 8), y: [45.0, 80.0] },
+			{ x: new Date(2019, 9), y: [12.0, 53.0] },
+			{ x: new Date(2020, 10), y: [15.0, 50.5] },
+			{ x: new Date(2021, 11), y: [5.5, 90.0] }
+
+		]
+	}]
+});
+chart.render();
+
+}
+</script>
+</head>
+<body>
+<div id="chartContainer" style="height: 300px; width: 100%;"></div>
+<script src="https://canvasjs.com/assets/script/canvasjs.min.js"></script>
+</head>
+
+
+
+
 <table class="table">
 
     <tr>
         <th>Name</th>
         <th>Description</th>
         <th>Date</th>
-        <th>Url</th>
-        <th>Ceus</th>
+        <th>URL</th>
+        <th>CEUs</th>
         <th>Hours</th>
         <th>Location</th>
 
