@@ -10,7 +10,7 @@
 <!--
 <h1> Add Training </h1>
 -->
-<h1 th:text="${title}">Default Training Title</h1>
+<h2 th:text="${title}">Default Training Title</h2>
 
 <form method="post" style="max-width:600px;" th:object="${training}">
     
@@ -33,13 +33,13 @@
     </div>
 
     <div class="form-group">
-        <label th:for="description">Url</label>
+        <label th:for="description">URL</label>
         <input class="form-control" th:field="*{url}" />
         <span th:errors="*{url}" class="error"></span>
 
     </div>
     <div class="form-group">
-        <label th:for="description">Ceus</label>
+        <label th:for="description">CEUs</label>
         <input class="form-control" th:field="*{ceus}" />
         <span th:errors="*{ceus}" class="error"></span>
     </div>
@@ -65,7 +65,7 @@
             </select>
         </div>
     -->
-    <input type="submit" value="Add Training" />
+    <input type="submit" value="Submit" />
 
 </form>
 
