@@ -10,13 +10,15 @@ This app enables one to digitally organize and maintained their professional tra
 
 User Login: Users will be able to create accounts and login. 
     
-Add Training: Users will be able to add training.   
+Add Training: Users will be able to add training via a form.   
 
-Drop-down List:  User will be able to label training as Scheduled, Completed or Wish List.
+View Training: Users will have a main view page which shows a list of their trainings. 
 
-View Training:  Each user will have a main view page and be able to view their training in sections based on Scheduled, Completed or Wish List.
+Bar graph:  User will see visual display of progress on their main page.
 
-View Online Training Certificates:  If the user earned a digital training certificate, they can provide a link to the certificate.
+View Online Training Certificates: If the user earned a digital training certificate, they can provide an url link to the certificate. (Future feature)
+
+Drop-down List:  User will be able to label training as Scheduled, Completed or Wish List. (Future feature)
 
 Deployment:  App will be deployed using Heroku.  
 
@@ -32,6 +34,8 @@ Deployment:  App will be deployed using Heroku.
 
 
 ## What you’ll have to learn: 
+
+Creating a bar graph for a visual representation of training progress.
 
 Implementation of URL to digital certificate.
 
