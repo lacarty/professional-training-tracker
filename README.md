@@ -19,7 +19,7 @@ Add Training: Users will be able to add training via a form.
 
 View Training: Users will have a main view page which shows a list of their trainings. 
 
-Bar graph:  User will see visual display of progress on their main page.
+Bar graph:  User will see visual display of progress on their main page. (In progress)
 
 View Online Training Certificates: If the user earned a digital training certificate, they can provide an url link to the certificate. (Future feature)
 
