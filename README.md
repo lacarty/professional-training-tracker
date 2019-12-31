@@ -4,6 +4,7 @@ Launchcode Tampa 2019 final "Liftoff" project:
 
 A personal app to manage your professional development training and continuing education (CE) units. 
 
+Demo: https://vimeo.com/380492139
 
 ## Overview: 
 
