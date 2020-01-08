@@ -1,6 +1,6 @@
 # professional-training-tracker
 
-Launchcode Tampa 2019 final "Liftoff" project:
+Launchcode Tampa 2019 Final Project:
 
 A personal app to manage your professional development training and continuing education (CE) units. 
 
