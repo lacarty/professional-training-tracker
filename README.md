@@ -51,10 +51,6 @@ Deployment of app in Heroku.
 https://github.com/lacarty/professional-training-tracker/blob/master/Wireframes/wireframes.pdf
 
 
-## Project Tracker: 
-https://trello.com/b/GpfJkaun
-
-
 ## Project Demo:
 https://vimeo.com/380492139
 
